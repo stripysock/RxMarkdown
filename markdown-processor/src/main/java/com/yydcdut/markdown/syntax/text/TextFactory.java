@@ -42,7 +42,7 @@ public class TextFactory implements SyntaxFactory {
     private ISpecialChain mLineChain;
     private ISpecialChain mTotalChain;
 
-    private TextFactory() {
+    public TextFactory() {
     }
 
     /**
