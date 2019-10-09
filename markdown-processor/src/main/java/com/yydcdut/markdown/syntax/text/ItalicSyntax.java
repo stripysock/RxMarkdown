@@ -47,7 +47,7 @@ public class ItalicSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    boolean isMatch(@NonNull String text) {
+    public boolean isMatch(@NonNull String text) {
         Pattern pattern = Pattern.compile(PATTERN_ASTERISK);
         isContainsAsterisk = pattern.matcher(text).matches();
         pattern = Pattern.compile(PATTERN_UNDERLINE);
@@ -57,7 +57,7 @@ public class ItalicSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    boolean encode(@NonNull SpannableStringBuilder ssb) {
+    public boolean encode(@NonNull SpannableStringBuilder ssb) {
         boolean isHandledBackSlash = false;
         if (isContainsAsterisk) {
             isHandledBackSlash |= replace(ssb, SyntaxKey.KEY_ITALIC_BACKSLASH_ASTERISK, CharacterProtector.getKeyEncode());
@@ -70,7 +70,7 @@ public class ItalicSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
+    public SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
         if (isContainsAsterisk) {
             ssb = SyntaxUtils.parseBoldAndItalic(SyntaxKey.KEY_ITALIC_ASTERISK, ssb, mCallback);
         }
@@ -82,7 +82,7 @@ public class ItalicSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    void decode(@NonNull SpannableStringBuilder ssb) {
+    public void decode(@NonNull SpannableStringBuilder ssb) {
         if (isContainsAsterisk) {
             replace(ssb, CharacterProtector.getKeyEncode(), SyntaxKey.KEY_ITALIC_BACKSLASH_ASTERISK);
         }

@@ -56,13 +56,13 @@ public class HyperLinkSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    boolean isMatch(@NonNull String text) {
+    public boolean isMatch(@NonNull String text) {
         return contains(text) ? Pattern.compile(PATTERN).matcher(text).matches() : Pattern.compile(AUTO_LINK_PATTERN).matcher(text).find();
     }
 
     @NonNull
     @Override
-    boolean encode(@NonNull SpannableStringBuilder ssb) {
+    public boolean encode(@NonNull SpannableStringBuilder ssb) {
         boolean isHandledBackSlash = false;
         isHandledBackSlash |= replace(ssb, SyntaxKey.KEY_HYPER_LINK_BACKSLASH_LEFT, CharacterProtector.getKeyEncode());
         isHandledBackSlash |= replace(ssb, SyntaxKey.KEY_HYPER_LINK_BACKSLASH_MIDDLE, CharacterProtector.getKeyEncode1());
@@ -71,7 +71,7 @@ public class HyperLinkSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
+    public SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
         parse(ssb);
         parseAutoLink(ssb);
         return ssb;
@@ -79,7 +79,7 @@ public class HyperLinkSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    void decode(@NonNull SpannableStringBuilder ssb) {
+    public void decode(@NonNull SpannableStringBuilder ssb) {
         replace(ssb, CharacterProtector.getKeyEncode(), SyntaxKey.KEY_HYPER_LINK_BACKSLASH_LEFT);
         replace(ssb, CharacterProtector.getKeyEncode1(), SyntaxKey.KEY_HYPER_LINK_BACKSLASH_MIDDLE);
         replace(ssb, CharacterProtector.getKeyEncode3(), SyntaxKey.KEY_HYPER_LINK_BACKSLASH_RIGHT);

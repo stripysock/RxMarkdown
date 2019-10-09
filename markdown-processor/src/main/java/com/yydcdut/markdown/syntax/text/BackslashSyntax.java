@@ -35,19 +35,19 @@ public class BackslashSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    boolean isMatch(@NonNull String text) {
+    public boolean isMatch(@NonNull String text) {
         return text.contains(SyntaxKey.KEY_BACKSLASH);
     }
 
     @NonNull
     @Override
-    boolean encode(@NonNull SpannableStringBuilder ssb) {
+    public boolean encode(@NonNull SpannableStringBuilder ssb) {
         return false;
     }
 
     @NonNull
     @Override
-    SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
+    public SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
         //----------  BoldSyntax && ItalicSyntax  ----------
         replace(ssb, SyntaxKey.KEY_BOLD_BACKSLASH_ASTERISK, SyntaxKey.KEY_BOLD_ASTERISK_SINGLE);
         replace(ssb, SyntaxKey.KEY_BOLD_BACKSLASH_UNDERLINE, SyntaxKey.KEY_BOLD_UNDERLINE_SINGLE);
@@ -86,6 +86,6 @@ public class BackslashSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    void decode(@NonNull SpannableStringBuilder ssb) {
+    public void decode(@NonNull SpannableStringBuilder ssb) {
     }
 }

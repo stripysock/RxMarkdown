@@ -44,13 +44,13 @@ public class FootnoteSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    boolean isMatch(@NonNull String text) {
+    public boolean isMatch(@NonNull String text) {
         return contains(text) ? Pattern.compile(PATTERN).matcher(text).matches() : false;
     }
 
     @NonNull
     @Override
-    boolean encode(@NonNull SpannableStringBuilder ssb) {
+    public boolean encode(@NonNull SpannableStringBuilder ssb) {
         boolean isHandledBackSlash = false;
         isHandledBackSlash |= replace(ssb, SyntaxKey.KEY_FOOTNOTE_BACKSLASH_LEFT, CharacterProtector.getKeyEncode());
         isHandledBackSlash |= replace(ssb, SyntaxKey.KEY_FOOTNOTE_BACKSLASH_RIGHT, CharacterProtector.getKeyEncode2());
@@ -58,14 +58,14 @@ public class FootnoteSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
+    public SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
         String text = ssb.toString();
         return parse(text, ssb);
     }
 
     @NonNull
     @Override
-    void decode(@NonNull SpannableStringBuilder ssb) {
+    public void decode(@NonNull SpannableStringBuilder ssb) {
         replace(ssb, CharacterProtector.getKeyEncode(), SyntaxKey.KEY_FOOTNOTE_BACKSLASH_LEFT);
         replace(ssb, CharacterProtector.getKeyEncode2(), SyntaxKey.KEY_FOOTNOTE_BACKSLASH_RIGHT);
     }

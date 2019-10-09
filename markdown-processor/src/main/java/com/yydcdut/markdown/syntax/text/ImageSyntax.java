@@ -51,13 +51,13 @@ public class ImageSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    boolean isMatch(@NonNull String text) {
+    public boolean isMatch(@NonNull String text) {
         return contains(text) ? true : Pattern.compile(PATTERN).matcher(text).matches();
     }
 
     @NonNull
     @Override
-    boolean encode(@NonNull SpannableStringBuilder ssb) {
+    public boolean encode(@NonNull SpannableStringBuilder ssb) {
         boolean isHandledBackSlash = false;
         isHandledBackSlash |= replace(ssb, SyntaxKey.KEY_IMAGE_BACKSLASH_LEFT, CharacterProtector.getKeyEncode());
         isHandledBackSlash |= replace(ssb, SyntaxKey.KEY_IMAGE_BACKSLASH_MIDDLE, CharacterProtector.getKeyEncode2());
@@ -66,13 +66,13 @@ public class ImageSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
+    public SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
         return parse(ssb);
     }
 
     @NonNull
     @Override
-    void decode(@NonNull SpannableStringBuilder ssb) {
+    public void decode(@NonNull SpannableStringBuilder ssb) {
         replace(ssb, CharacterProtector.getKeyEncode(), SyntaxKey.KEY_IMAGE_BACKSLASH_LEFT);
         replace(ssb, CharacterProtector.getKeyEncode2(), SyntaxKey.KEY_IMAGE_BACKSLASH_MIDDLE);
         replace(ssb, CharacterProtector.getKeyEncode3(), SyntaxKey.KEY_IMAGE_BACKSLASH_RIGHT);

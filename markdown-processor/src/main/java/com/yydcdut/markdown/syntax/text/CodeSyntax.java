@@ -46,25 +46,25 @@ public class CodeSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    boolean isMatch(@NonNull String text) {
+    public boolean isMatch(@NonNull String text) {
         return text.contains(SyntaxKey.KEY_CODE) ? Pattern.compile(PATTERN).matcher(text).matches() : false;
     }
 
     @NonNull
     @Override
-    boolean encode(@NonNull SpannableStringBuilder ssb) {
+    public boolean encode(@NonNull SpannableStringBuilder ssb) {
         return replace(ssb, SyntaxKey.KEY_CODE_BACKSLASH, CharacterProtector.getKeyEncode());
     }
 
     @Override
-    SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
+    public SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
         String text = ssb.toString();
         return parse(text, ssb);
     }
 
     @NonNull
     @Override
-    void decode(@NonNull SpannableStringBuilder ssb) {
+    public void decode(@NonNull SpannableStringBuilder ssb) {
         replace(ssb, CharacterProtector.getKeyEncode(), SyntaxKey.KEY_CODE_BACKSLASH);
     }
 

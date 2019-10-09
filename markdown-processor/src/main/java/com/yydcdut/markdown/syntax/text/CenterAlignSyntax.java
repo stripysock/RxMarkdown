@@ -40,19 +40,19 @@ public class CenterAlignSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    boolean isMatch(@NonNull String text) {
+    public boolean isMatch(@NonNull String text) {
         return text.startsWith(SyntaxKey.KEY_CENTER_ALIGN_LEFT) && text.endsWith(SyntaxKey.KEY_CENTER_ALIGN_RIGHT);
     }
 
     @NonNull
     @Override
-    boolean encode(@NonNull SpannableStringBuilder ssb) {
+    public boolean encode(@NonNull SpannableStringBuilder ssb) {
         return replace(ssb, SyntaxKey.KEY_CENTER_ALIGN_BACKSLASH_RIGHT, CharacterProtector.getKeyEncode1());
     }
 
     @NonNull
     @Override
-    SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
+    public SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
         ssb.delete(0, 1).delete(ssb.length() - 1, ssb.length());
         ssb.setSpan(new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return ssb;
@@ -60,7 +60,7 @@ public class CenterAlignSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    void decode(@NonNull SpannableStringBuilder ssb) {
+    public void decode(@NonNull SpannableStringBuilder ssb) {
         replace(ssb, CharacterProtector.getKeyEncode1(), SyntaxKey.KEY_CENTER_ALIGN_BACKSLASH_RIGHT);
     }
 }

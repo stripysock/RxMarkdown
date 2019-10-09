@@ -47,7 +47,7 @@ public class BoldSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    boolean isMatch(@NonNull String text) {
+    public boolean isMatch(@NonNull String text) {
         if (!text.contains(SyntaxKey.KEY_BOLD_ASTERISK) && !text.contains(SyntaxKey.KEY_BOLD_UNDERLINE)) {
             return false;
         }
@@ -60,7 +60,7 @@ public class BoldSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    boolean encode(@NonNull SpannableStringBuilder ssb) {
+    public boolean encode(@NonNull SpannableStringBuilder ssb) {
         boolean isHandledBackSlash = false;
         if (isContainsAsterisk) {
             isHandledBackSlash |= replace(ssb, SyntaxKey.KEY_BOLD_BACKSLASH_ASTERISK, CharacterProtector.getKeyEncode());
@@ -73,7 +73,7 @@ public class BoldSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
+    public SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
         if (isContainsAsterisk) {
             ssb = SyntaxUtils.parseBoldAndItalic(SyntaxKey.KEY_BOLD_ASTERISK, ssb, mCallback);
         }
@@ -85,7 +85,7 @@ public class BoldSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    void decode(@NonNull SpannableStringBuilder ssb) {
+    public void decode(@NonNull SpannableStringBuilder ssb) {
         if (isContainsAsterisk) {
             replace(ssb, CharacterProtector.getKeyEncode(), SyntaxKey.KEY_BOLD_BACKSLASH_ASTERISK);
         }

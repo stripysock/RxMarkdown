@@ -51,18 +51,18 @@ public class TodoSyntax extends TextSyntaxAdapter implements OnTodoClickListener
     }
 
     @Override
-    boolean isMatch(@NonNull String text) {
+    public boolean isMatch(@NonNull String text) {
         return text.startsWith(SyntaxKey.KEY_TODO_HYPHEN) || text.startsWith(SyntaxKey.KEY_TODO_ASTERISK);
     }
 
     @NonNull
     @Override
-    boolean encode(@NonNull SpannableStringBuilder ssb) {
+    public boolean encode(@NonNull SpannableStringBuilder ssb) {
         return false;
     }
 
     @Override
-    SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
+    public SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
         SyntaxUtils.setTodoOrDoneClick(SyntaxKey.KEY_TODO_HYPHEN.length(), ssb, this);
         MDTodoSpan mdTodoSpan = new MDTodoSpan(mTodoColor, lineNumber);
         ssb.setSpan(mdTodoSpan, 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -71,7 +71,7 @@ public class TodoSyntax extends TextSyntaxAdapter implements OnTodoClickListener
 
     @NonNull
     @Override
-    void decode(@NonNull SpannableStringBuilder ssb) {
+    public void decode(@NonNull SpannableStringBuilder ssb) {
     }
 
     @Override

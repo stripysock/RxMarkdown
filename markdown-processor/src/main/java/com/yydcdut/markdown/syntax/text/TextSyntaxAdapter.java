@@ -74,7 +74,7 @@ public abstract class TextSyntaxAdapter implements Syntax {
         return ssb;
     }
 
-    protected static boolean replace(SpannableStringBuilder ssb, String key, String replace) {
+    public static boolean replace(SpannableStringBuilder ssb, String key, String replace) {
         boolean isHandledBackSlash = false;
         int index;
         while (true) {
@@ -95,7 +95,7 @@ public abstract class TextSyntaxAdapter implements Syntax {
      * @param text the content
      * @return TRUE: match
      */
-    abstract boolean isMatch(@NonNull String text);
+    public abstract boolean isMatch(@NonNull String text);
 
     /**
      * encode the back slash in content
@@ -104,7 +104,7 @@ public abstract class TextSyntaxAdapter implements Syntax {
      * @return is handled back slash
      */
     @NonNull
-    abstract boolean encode(@NonNull SpannableStringBuilder ssb);
+    public abstract boolean encode(@NonNull SpannableStringBuilder ssb);
 
     /**
      * parse the content which is encoded
@@ -113,16 +113,15 @@ public abstract class TextSyntaxAdapter implements Syntax {
      * @param lineNumber the number of text in the content
      */
     @NonNull
-    abstract SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber);
+    public abstract SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber);
 
     /**
      * decode the back slash in content
      *
      * @param ssb the content which is parsed
-     * @return the result content
      */
     @NonNull
-    abstract void decode(@NonNull SpannableStringBuilder ssb);
+    public abstract void decode(@NonNull SpannableStringBuilder ssb);
 
     @NonNull
     @Override

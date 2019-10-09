@@ -52,19 +52,19 @@ public class TodoDoneSyntax extends TextSyntaxAdapter implements OnTodoClickList
     }
 
     @Override
-    boolean isMatch(@NonNull String text) {
+    public boolean isMatch(@NonNull String text) {
         return text.startsWith(SyntaxKey.KEY_TODO_DONE_0) || text.startsWith(SyntaxKey.KEY_TODO_DONE_1)
                 || text.startsWith(SyntaxKey.KEY_TODO_DONE_2) || text.startsWith(SyntaxKey.KEY_TODO_DONE_3);
     }
 
     @NonNull
     @Override
-    boolean encode(@NonNull SpannableStringBuilder ssb) {
+    public boolean encode(@NonNull SpannableStringBuilder ssb) {
         return false;
     }
 
     @Override
-    SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
+    public SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
         SyntaxUtils.setTodoOrDoneClick(SyntaxKey.KEY_TODO_DONE_0.length(), ssb, this);
         ssb.setSpan(new MDTodoDoneSpan(mDoneColor, lineNumber), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return ssb;
@@ -72,7 +72,7 @@ public class TodoDoneSyntax extends TextSyntaxAdapter implements OnTodoClickList
 
     @NonNull
     @Override
-    void decode(@NonNull SpannableStringBuilder ssb) {
+    public void decode(@NonNull SpannableStringBuilder ssb) {
     }
 
     @Override

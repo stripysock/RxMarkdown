@@ -48,7 +48,7 @@ public class HorizontalRulesSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    boolean isMatch(@NonNull String text) {
+    public boolean isMatch(@NonNull String text) {
         if (text.startsWith(SyntaxKey.KEY_HORIZONTAL_RULES_ASTERISK)) {
             if (check(text, SyntaxKey.KEY_HORIZONTAL_RULES_ASTERISK_SINGLE)) {
                 return true;
@@ -64,12 +64,12 @@ public class HorizontalRulesSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    boolean encode(@NonNull SpannableStringBuilder ssb) {
+    public boolean encode(@NonNull SpannableStringBuilder ssb) {
         return false;
     }
 
     @Override
-    SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
+    public SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
         ssb.replace(0, ssb.length(), " ");
         ssb.setSpan(new MDHorizontalRulesSpan(mColor, mHeight), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return ssb;
@@ -77,7 +77,7 @@ public class HorizontalRulesSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    void decode(@NonNull SpannableStringBuilder ssb) {
+    public void decode(@NonNull SpannableStringBuilder ssb) {
     }
 
     /**

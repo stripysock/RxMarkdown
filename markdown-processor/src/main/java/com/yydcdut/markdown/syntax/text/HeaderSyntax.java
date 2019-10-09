@@ -42,12 +42,12 @@ import com.yydcdut.markdown.syntax.SyntaxKey;
  */
 public class HeaderSyntax extends TextSyntaxAdapter {
 
-    private float mHeader1RelativeSize;
-    private float mHeader2RelativeSize;
-    private float mHeader3RelativeSize;
-    private float mHeader4RelativeSize;
-    private float mHeader5RelativeSize;
-    private float mHeader6RelativeSize;
+    float mHeader1RelativeSize;
+    float mHeader2RelativeSize;
+    float mHeader3RelativeSize;
+    float mHeader4RelativeSize;
+    float mHeader5RelativeSize;
+    float mHeader6RelativeSize;
 
     public HeaderSyntax(@NonNull MarkdownConfiguration markdownConfiguration) {
         super(markdownConfiguration);
@@ -60,7 +60,7 @@ public class HeaderSyntax extends TextSyntaxAdapter {
     }
 
     @Override
-    boolean isMatch(@NonNull String text) {
+    public  boolean isMatch(@NonNull String text) {
         return text.startsWith(SyntaxKey.KEY_0_HEADER)
                 || text.startsWith(SyntaxKey.KEY_1_HEADER)
                 || text.startsWith(SyntaxKey.KEY_2_HEADER)
@@ -71,13 +71,13 @@ public class HeaderSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    boolean encode(@NonNull SpannableStringBuilder ssb) {
+    public  boolean encode(@NonNull SpannableStringBuilder ssb) {
         return false;
     }
 
     @NonNull
     @Override
-    SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
+    public SpannableStringBuilder format(@NonNull SpannableStringBuilder ssb, int lineNumber) {
         String text = ssb.toString();
         if (text.startsWith(SyntaxKey.KEY_5_HEADER)) {
             ssb.delete(0, SyntaxKey.KEY_5_HEADER.length());
@@ -103,6 +103,6 @@ public class HeaderSyntax extends TextSyntaxAdapter {
 
     @NonNull
     @Override
-    void decode(@NonNull SpannableStringBuilder ssb) {
+    public void decode(@NonNull SpannableStringBuilder ssb) {
     }
 }
