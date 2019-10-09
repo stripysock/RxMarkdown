@@ -42,12 +42,12 @@ import com.yydcdut.markdown.syntax.SyntaxKey;
  */
 public class HeaderSyntax extends TextSyntaxAdapter {
 
-    float mHeader1RelativeSize;
-    float mHeader2RelativeSize;
-    float mHeader3RelativeSize;
-    float mHeader4RelativeSize;
-    float mHeader5RelativeSize;
-    float mHeader6RelativeSize;
+    public float mHeader1RelativeSize;
+    public float mHeader2RelativeSize;
+    public float mHeader3RelativeSize;
+    public float mHeader4RelativeSize;
+    public float mHeader5RelativeSize;
+    public float mHeader6RelativeSize;
 
     public HeaderSyntax(@NonNull MarkdownConfiguration markdownConfiguration) {
         super(markdownConfiguration);
