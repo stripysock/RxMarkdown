@@ -31,11 +31,10 @@ import java.util.List;
 /**
  * The implementation of syntax for block quotes.
  * syntax:
- * "> "
  * <p>
  * Created by yuyidong on 16/5/4.
  */
-class BlockQuotesSyntax extends TextSyntaxAdapter {
+public class BlockQuotesSyntax extends TextSyntaxAdapter {
 
     private final float mRelativeSize;
     private final List<Integer> bgColorList;

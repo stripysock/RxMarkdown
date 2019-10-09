@@ -40,7 +40,7 @@ import com.yydcdut.markdown.syntax.SyntaxKey;
  * <p>
  * Created by yuyidong on 16/5/20.
  */
-class HeaderSyntax extends TextSyntaxAdapter {
+public class HeaderSyntax extends TextSyntaxAdapter {
 
     private float mHeader1RelativeSize;
     private float mHeader2RelativeSize;

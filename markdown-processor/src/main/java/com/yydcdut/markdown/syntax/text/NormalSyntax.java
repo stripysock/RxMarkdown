@@ -25,7 +25,7 @@ import com.yydcdut.markdown.MarkdownConfiguration;
  * <p>
  * Created by yuyidong on 16/5/4.
  */
-class NormalSyntax extends TextSyntaxAdapter {
+public class NormalSyntax extends TextSyntaxAdapter {
 
     NormalSyntax(@NonNull MarkdownConfiguration markdownConfiguration) {
         super(markdownConfiguration);

@@ -44,7 +44,7 @@ import java.util.List;
  * <p>
  * Created by yuyidong on 16/5/17.
  */
-class CodeBlockSyntax implements Syntax {
+public class CodeBlockSyntax implements Syntax {
 
     private int mBackgroundColor;
     private int mTextColor;

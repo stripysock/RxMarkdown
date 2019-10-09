@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
  * <p>
  * Created by yuyidong on 16/5/13.
  */
-class CodeSyntax extends TextSyntaxAdapter {
+public class CodeSyntax extends TextSyntaxAdapter {
     private static final String PATTERN = ".*[`]{1}.*[`]{1}.*";
 
     private int mColor;
@@ -122,7 +122,7 @@ class CodeSyntax extends TextSyntaxAdapter {
             return -1;
         } else {
             if (SyntaxUtils.existHyperLinkSyntax(ssb, tmp.length() + position, SyntaxKey.KEY_CODE.length()) ||
-                    SyntaxUtils.existImageSyntax(ssb, tmp.length() + position, SyntaxKey.KEY_CODE.length())) {//key是否在HyperLink或者CustomImage中
+                    SyntaxUtils.existImageSyntax(ssb, tmp.length() + position, SyntaxKey.KEY_CODE.length())) {//keyæ˜¯å�¦åœ¨HyperLinkæˆ–è€…CustomImageä¸­
                 StringBuilder sb = new StringBuilder(tmpTmpTotal.substring(0, position))
                         .append("$").append(tmpTmpTotal.substring(position + SyntaxKey.KEY_CODE.length(), tmpTmpTotal.length()));
                 return findPosition(sb.toString(), ssb, tmp);

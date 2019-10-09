@@ -33,7 +33,7 @@ import com.yydcdut.markdown.utils.CharacterProtector;
  * <p>
  * Created by yuyidong on 16/5/4.
  */
-class CenterAlignSyntax extends TextSyntaxAdapter {
+public class CenterAlignSyntax extends TextSyntaxAdapter {
 
     public CenterAlignSyntax(@NonNull MarkdownConfiguration markdownConfiguration) {
         super(markdownConfiguration);

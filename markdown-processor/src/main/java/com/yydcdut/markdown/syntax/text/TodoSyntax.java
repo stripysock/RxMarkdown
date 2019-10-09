@@ -38,7 +38,7 @@ import com.yydcdut.markdown.utils.TextHelper;
  * <p>
  * Created by yuyidong on 16/5/17.
  */
-class TodoSyntax extends TextSyntaxAdapter implements OnTodoClickListener {
+public class TodoSyntax extends TextSyntaxAdapter implements OnTodoClickListener {
     private int mTodoColor;
     private int mDoneColor;
     private OnTodoClickCallback mOnTodoClickCallback;

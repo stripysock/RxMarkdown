@@ -36,7 +36,7 @@ import java.util.regex.Pattern;
  * <p>
  * Created by yuyidong on 16/5/13.
  */
-class FootnoteSyntax extends TextSyntaxAdapter {
+public class FootnoteSyntax extends TextSyntaxAdapter {
     private static final String PATTERN = ".*[\\[\\^].*[]].*";
 
     public FootnoteSyntax(@NonNull MarkdownConfiguration markdownConfiguration) {
@@ -82,11 +82,11 @@ class FootnoteSyntax extends TextSyntaxAdapter {
         }
         char[] array = text.toCharArray();
         final int length = array.length;
-        char[] findArray = new char[]{'[', '^', ']'};// TODO: 2018/4/29 写到key里面
+        char[] findArray = new char[]{'[', '^', ']'};// TODO: 2018/4/29 å†™åˆ°keyé‡Œé�¢
         int findPosition = 0;
         for (int i = 0; i < length; i++) {
             if (TextHelper.getChar(array, i) != 0 && TextHelper.getChar(array, i) == TextHelper.getChar(findArray, findPosition)) {
-                if (findPosition == 0) {//[后面必须得是^
+                if (findPosition == 0) {//[å�Žé�¢å¿…é¡»å¾—æ˜¯^
                     if (TextHelper.getChar(array, ++i) == 0 || TextHelper.getChar(findArray, ++findPosition) == 0) {
                         return false;
                     }
@@ -156,7 +156,7 @@ class FootnoteSyntax extends TextSyntaxAdapter {
         if (position == -1) {
             return -1;
         } else {
-            if (SyntaxUtils.existCodeSyntax(ssb, tmp.length() + position, SyntaxKey.KEY_FOOTNOTE_LEFT.length())) {//key是否在inlineCode中
+            if (SyntaxUtils.existCodeSyntax(ssb, tmp.length() + position, SyntaxKey.KEY_FOOTNOTE_LEFT.length())) {//keyæ˜¯å�¦åœ¨inlineCodeä¸­
                 StringBuilder sb = new StringBuilder(tmpTmpTotal.substring(0, position))
                         .append("$$").append(tmpTmpTotal.substring(position + SyntaxKey.KEY_FOOTNOTE_LEFT.length(), tmpTmpTotal.length()));
                 return findBeginPosition(sb.toString(), ssb, tmp);
@@ -181,7 +181,7 @@ class FootnoteSyntax extends TextSyntaxAdapter {
         if (position == -1) {
             return -1;
         } else {
-            if (SyntaxUtils.existCodeSyntax(ssb, tmp.length() + position, SyntaxKey.KEY_FOOTNOTE_RIGHT.length())) {//key是否在inlineCode中
+            if (SyntaxUtils.existCodeSyntax(ssb, tmp.length() + position, SyntaxKey.KEY_FOOTNOTE_RIGHT.length())) {//keyæ˜¯å�¦åœ¨inlineCodeä¸­
                 StringBuilder sb = new StringBuilder(tmpTmpTotal.substring(0, position))
                         .append("$").append(tmpTmpTotal.substring(position + SyntaxKey.KEY_FOOTNOTE_RIGHT.length(), tmpTmpTotal.length()));
                 return findBeginPosition(sb.toString(), ssb, tmp);

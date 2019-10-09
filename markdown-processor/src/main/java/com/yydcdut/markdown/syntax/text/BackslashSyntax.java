@@ -28,7 +28,7 @@ import com.yydcdut.markdown.syntax.SyntaxKey;
  * <p>
  * Created by yuyidong on 16/6/20.
  */
-class BackslashSyntax extends TextSyntaxAdapter {
+public class BackslashSyntax extends TextSyntaxAdapter {
 
     public BackslashSyntax(@NonNull MarkdownConfiguration markdownConfiguration) {
         super(markdownConfiguration);

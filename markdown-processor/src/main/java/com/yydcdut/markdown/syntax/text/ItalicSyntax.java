@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
  * <p>
  * Created by yuyidong on 16/5/3.
  */
-class ItalicSyntax extends TextSyntaxAdapter {
+public class ItalicSyntax extends TextSyntaxAdapter {
     private static final String PATTERN_ASTERISK = ".*[\\*]{1}.*[\\*]{1}.*";
     private static final String PATTERN_UNDERLINE = ".*[_]{1}.*[_]{1}.*";
 

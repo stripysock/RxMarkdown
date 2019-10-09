@@ -38,7 +38,7 @@ import java.util.List;
  * <p>
  * Created by yuyidong on 16/5/22.
  */
-class OrderListSyntax implements Syntax {
+public class OrderListSyntax implements Syntax {
 
     /**
      * Constructor
@@ -88,7 +88,7 @@ class OrderListSyntax implements Syntax {
                 continue;
             }
             int number = calculateNumber(lines[i], nested);
-            //判断上文
+            //åˆ¤æ–­ä¸Šæ–‡
             if (i - 1 < 0 || i - 1 >= list.size()) {
                 if (nested == 0) {
                     list.add(new NestedOrderListBean(currentLineIndex, true, lines[i], 0, 1, number));
@@ -117,7 +117,7 @@ class OrderListSyntax implements Syntax {
                     }
                     //check
                     NestedOrderListBean bean = list.get(i);
-                    //如果为null说明上面某一部肯定有问题
+                    //å¦‚æžœä¸ºnullè¯´æ˜Žä¸Šé�¢æŸ�ä¸€éƒ¨è‚¯å®šæœ‰é—®é¢˜
                     if (bean == null) {
                         list.add(new NestedOrderListBean(currentLineIndex, false, lines[i], -1, -1, -1));
                     }
@@ -146,7 +146,7 @@ class OrderListSyntax implements Syntax {
             int dotPosition = 1;
             final int length = text.length();
             for (int i = 1; i < length; i++) {
-                if (Character.isDigit(text.charAt(i))) {//一直都是数字
+                if (Character.isDigit(text.charAt(i))) {//ä¸€ç›´éƒ½æ˜¯æ•°å­—
                     continue;
                 } else {
                     dotPosition = i;
@@ -174,7 +174,7 @@ class OrderListSyntax implements Syntax {
                 break;
             }
             String sub = text.substring(nested * SyntaxKey.KEY_LIST_HEADER.length(), (nested + 1) * SyntaxKey.KEY_LIST_HEADER.length());
-            if (SyntaxKey.KEY_LIST_HEADER.equals(sub)) {//还是" "
+            if (SyntaxKey.KEY_LIST_HEADER.equals(sub)) {//è¿˜æ˜¯" "
                 nested++;
             } else if (checkLegal(text.substring(nested * SyntaxKey.KEY_LIST_HEADER.length(), text.length()))) {
                 return nested;

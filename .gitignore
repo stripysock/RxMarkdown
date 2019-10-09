@@ -42,3 +42,9 @@ proguard/
 .sonar
 
 !demo.apk
+markdown-processor/.project
+markdown-processor/gradlew.bat
+markdown-processor/gradlew
+markdown-processor/.idea/
+markdown-processor/gradle/
+markdown-processor/.settings/

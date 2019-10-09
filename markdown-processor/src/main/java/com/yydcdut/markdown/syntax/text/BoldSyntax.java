@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
  * <p>
  * Created by yuyidong on 16/5/3.
  */
-class BoldSyntax extends TextSyntaxAdapter {
+public class BoldSyntax extends TextSyntaxAdapter {
     private static final String PATTERN_ASTERISK = ".*[\\*]{2}.*[\\*]{2}.*";
     private static final String PATTERN_UNDERLINE = ".*[_]{2}.*[_]{2}.*";
 

@@ -35,7 +35,7 @@ import java.util.List;
  * <p>
  * Created by yuyidong on 16/5/13.
  */
-abstract class TextSyntaxAdapter implements Syntax {
+public abstract class TextSyntaxAdapter implements Syntax {
 
     public TextSyntaxAdapter(@NonNull MarkdownConfiguration markdownConfiguration) {
     }

@@ -33,7 +33,7 @@ import java.util.regex.Pattern;
  * <p>
  * Created by yuyidong on 16/5/13.
  */
-class StrikeThroughSyntax extends TextSyntaxAdapter {
+public class StrikeThroughSyntax extends TextSyntaxAdapter {
     private static final String PATTERN = ".*[~]{2}.*[~]{2}.*";
 
     public StrikeThroughSyntax(@NonNull MarkdownConfiguration markdownConfiguration) {

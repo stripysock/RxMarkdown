@@ -36,7 +36,7 @@ import com.yydcdut.markdown.syntax.SyntaxKey;
  * <p>
  * Created by yuyidong on 16/5/15.
  */
-class HorizontalRulesSyntax extends TextSyntaxAdapter {
+public class HorizontalRulesSyntax extends TextSyntaxAdapter {
 
     private int mColor;
     private int mHeight;
